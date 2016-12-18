@@ -1,0 +1,74 @@
+{
+    "name": "t2t2/juryshow",
+    "description": "Site for JuRY's shows",
+    "type": "project",
+    "require": {
+        "processwire/processwire": "^3.0",
+        "hari/pw-module": "^1.0",
+        "lostkobrakai/migrations": "^0.1.8",
+        "kongondo/menu-builder": "^0.1.6",
+        "somatonic/multisite": "^10"
+    },
+    "autoload": {
+        "psr-4": {
+            "t2t2\\JuRYShow\\": "src/",
+            "ProcessWire\\": "vendor/processwire/processwire/wire/core"
+        }
+    },
+    "scripts": {
+        "post-package-install": [
+            "t2t2\\JuRYShow\\Install\\UpdateStaticFiles::postInstalledModule"
+        ],
+        "post-package-update": [
+            "t2t2\\JuRYShow\\Install\\UpdateStaticFiles::postInstalledModule"
+        ],
+        "post-package-uninstall": [
+            "t2t2\\JuRYShow\\Install\\UpdateStaticFiles::postRemovedModule"
+        ],
+        "installer": [
+            "t2t2\\JuRYShow\\Install\\UpdateStaticFiles::makeInstaller"
+        ]
+    },
+    "repositories": [
+        {
+            "type": "package",
+            "package": {
+                "name": "kongondo/menu-builder",
+                "version": "0.1.6",
+                "dist": {
+                    "url": "https://github.com/kongondo/MenuBuilder/archive/9f5e97aa257ab4c2cc7e18d163aafa4f6b265490.zip",
+                    "type": "zip"
+                },
+                "source": {
+                    "url": "https://github.com/kongondo/MenuBuilder",
+                    "type": "git",
+                    "reference": "9f5e97aa257ab4c2cc7e18d163aafa4f6b265490"
+                },
+                "type": "pw-module",
+                "require": {
+                    "hari/pw-module": "~1.0"
+                }
+            }
+        },
+        {
+            "type": "package",
+            "package": {
+                "name": "somatonic/multisite",
+                "version": "10",
+                "dist": {
+                    "url": "https://github.com/somatonic/Multisite/archive/dev2.zip",
+                    "type": "zip"
+                },
+                "source": {
+                    "url": "https://github.com/somatonic/Multisite",
+                    "type": "git",
+                    "reference": "dev2"
+                },
+                "type": "pw-module",
+                "require": {
+                    "hari/pw-module": "~1.0"
+                }
+            }
+        }
+    ]
+}

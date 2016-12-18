@@ -1,0 +1,10 @@
+<?php
+require "../vendor/autoload.php";
+
+use t2t2\JuRYShow\Install\Installer;
+
+if(!Installer::TEST_MODE && is_file("../site/assets/installed.php")) die("This installer has already run. Please delete it."); 
+error_reporting(E_ALL | E_STRICT); 
+$installer = new Installer(require __DIR__ . '/../bootstrap/config.php');
+$installer->execute();
+

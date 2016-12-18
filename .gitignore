@@ -1,0 +1,7 @@
+node_modules/*
+public/site/*
+public/wire/*
+site/assets/*
+site/modules/*
+!site/modules/README.txt
+vendor/*
