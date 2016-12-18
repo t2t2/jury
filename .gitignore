@@ -5,3 +5,5 @@ site/assets/*
 site/modules/*
 !site/modules/README.txt
 vendor/*
+
+/config.php
