@@ -40,3 +40,13 @@ if(!defined("PROCESSWIRE")) die();
  */
 $config->useFunctionsAPI = true;
 
+/**
+ * Prepend template file 
+ * 
+ * PHP file in /site/templates/ that will be loaded before each page's template file.
+ *
+ * #notes Example: _init.php
+ * @var string
+ *
+ */
+$config->prependTemplateFile = '_init.php';
