@@ -7,11 +7,18 @@ $document = new SimpleXMLElement('<?xml version="1.0"?><rss version="2.0"></rss>
 $channel = $document->addChild('channel');
 $channel->addChild('title', $page->title);
 // Link to parent
-$channel->addChild('link', $multisite->fixUrl($page->rootParent->httpUrl));
+$feedURL = $multisite->fixUrl($page->rootParent->httpUrl);
+$channel->addChild('link', $feedURL);
 $channel->addChild('description', $page->summary);
 
+if ($page->image) {
+	$imageNode = $channel->addChild('image');
+	$imageNode->addChild('url', $multisite->fixUrl($page->image->httpUrl));
+	$imageNode->addChild('title', $page->title);
+	$imageNode->addChild('link', $feedURL);
+}
+
 $selector = "parent={$page->episodes_collections},media.media_type={$page->media_type},sort=-release,limit={$page->per_page}";
-$channel->addChild('debug', $selector);
 $episodes = pages($selector);
 
 foreach($episodes as $episode) {
