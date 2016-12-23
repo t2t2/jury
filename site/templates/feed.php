@@ -10,10 +10,15 @@ $channel->addChild('title', $page->title);
 $channel->addChild('link', $multisite->fixUrl($page->rootParent->httpUrl));
 $channel->addChild('description', $page->summary);
 
-$selector = "parent={$page->episodes_collections},children.template=media-audio,limit=50";
+$selector = "parent={$page->episodes_collections},media.media_type={$page->media_type},sort=-release,limit={$page->per_page}";
+$channel->addChild('debug', $selector);
 $episodes = pages($selector);
 
 foreach($episodes as $episode) {
+	$media = $episode->child("media_type={$page->media_type}");
+	if (!$media) {
+		continue;
+	}
 	$episodeNode = $channel->addChild('item');
 	$episodeNode->addChild('title', $episode->title);
 	$episodeNode->addChild('link', $multisite->fixUrl($episode->httpUrl));
@@ -24,6 +29,12 @@ foreach($episodes as $episode) {
 	} else {
 		$episodeNode->addChild('guid', $multisite->fixUrl($episode->httpUrl));
 	}
+	$mediaNode = $episodeNode->addChild('enclosure');
+	$mediaNode->addAttribute('url', $media->href);
+	if ($media->size) {
+		$mediaNode->addAttribute('length', $media->size);
+	}
+	$mediaNode->addAttribute('type', $media->mime ?: $media->media_type->mime);
 }
 
 echo $document->asXML();
