@@ -50,3 +50,29 @@ $config->useFunctionsAPI = true;
  *
  */
 $config->prependTemplateFile = '_init.php';
+
+$config->httpHosts = [
+	'justinryoung.tv', 'www.justinryoung.tv',
+	'jurytalks.com', 'www.jurytalks.com',
+	'politicspoliticspolitics.com', 'www.politicspoliticspolitics.com',
+	'1900wrestling.justinryoung.tv', 'www.1900wrestling.justinryoung.tv'
+];
+
+$config->MultisiteDomains = [
+	'justinryoung.tv' => [
+		'root' => 'www.justinryoung.tv',
+		'http404' => 27
+	],
+	'jurytalks.com' => [
+		'root' => 'www.jurytalks.com',
+		'http404' => 27
+	],
+	'politicspoliticspolitics.com' => [
+		'root' => 'www.politicspoliticspolitics.com',
+		'http404' => 27
+	],
+	'1900wrestling.justinryoung.tv' => [
+		'root' => '1900wrestling.justinryoung.tv',
+		'http404' => 27
+	]
+];
