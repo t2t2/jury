@@ -6,7 +6,7 @@ class Migration_2016_12_25_17_01_41 extends Migration {
 
 	public function update() {
 		$root = $this->templates->get('root');
-		$homeLink = $this->templates->get('home_link');
+		$homeLink = $this->templates->get('home-link');
 
 		$homeLink->parentTemplates = [$root->id];
 		$homeLink->noShortcut = true;
@@ -18,7 +18,7 @@ class Migration_2016_12_25_17_01_41 extends Migration {
 
 	public function downgrade() {
 		$root = $this->templates->get('root');
-		$homeLink = $this->templates->get('home_link');
+		$homeLink = $this->templates->get('home-link');
 
 		$homeLink->parentTemplates = [];
 		$homeLink->noShortcut = false;
