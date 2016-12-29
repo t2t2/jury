@@ -8,7 +8,8 @@
         "lostkobrakai/migrations": "^0.1.8",
         "kongondo/menu-builder": "^0.1.6",
         "somatonic/multisite": "^10",
-        "nesbot/carbon": "^1.21"
+        "nesbot/carbon": "^1.21",
+        "t2t2/template-plates": "dev-master"
     },
     "autoload": {
         "psr-4": {
@@ -70,6 +71,10 @@
                     "hari/pw-module": "~1.0"
                 }
             }
+        },
+        {
+            "type": "path",
+            "url": "./src/template-plates"
         }
     ]
 }

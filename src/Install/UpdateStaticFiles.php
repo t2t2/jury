@@ -13,7 +13,11 @@ class UpdateStaticFiles {
 	static $paths;
 
 	public static function postInstalledModule(PackageEvent $event) {
-		$package = $event->getOperation()->getPackage();
+		if ($event->getOperation()->getJobType() === 'update') {
+			$package = $event->getOperation()->getTargetPackage();
+		} else {
+			$package = $event->getOperation()->getPackage();
+		}
 		$paths = static::getPaths($event, $package);
 
 		if ($paths) {

@@ -1,0 +1,10 @@
+{
+	"name": "t2t2/template-plates",
+	"type": "pw-module",
+	"description": "Plates for processwire",
+	"keywords": [ "processwire", "module", "plates" ],
+	"require": {
+		"hari/pw-module": "~1.0",
+		"league/plates": "3.*"
+	}
+}

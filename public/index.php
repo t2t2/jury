@@ -48,6 +48,7 @@ try {
 	$wire = new ProcessWire($config);
 	$process = $wire->modules->get('ProcessPageView');
 	$wire->wire('process', $process); 
+	include $config->paths->site . '/init.php';
 	echo $process->execute($config->internal);
 	$config->internal ? $process->finished() : extract($wire->wire('all')->getArray());
 	

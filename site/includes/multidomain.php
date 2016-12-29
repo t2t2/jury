@@ -1,4 +1,6 @@
 <?php
+use function ProcessWire\wire;
+
 // Make multidomain account for http/s
 wire()->addHookProperty('Multisite::urlPatterns', function($event) {
 	$multisite = $event->object;

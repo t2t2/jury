@@ -1,5 +1,7 @@
 <?php
 use Carbon\Carbon;
+use function ProcessWire\pages;
+
 $multisite = $modules->get('Multisite');
 $feedURL = $multisite->fixUrl($page->rootParent->httpUrl);
 
@@ -122,52 +124,3 @@ foreach ($episodes as $episode) {
 header('Content-Type: application/xml');
 
 echo $xml->saveXML();
-
-/*
-$document = new SimpleXMLElement('<?xml version="1.0"?><rss version="2.0" xmlns:itunes="http://www.itunes.com/dtds/podcast-1.0.dtd"></rss>');
-$channel = $document->addChild('channel');
-$channel->addChild('title', $page->title);
-// Link to parent
-$feedURL = $multisite->fixUrl($page->rootParent->httpUrl);
-$channel->addChild('link', $feedURL);
-$channel->addChild('description', $page->summary);
-
-if ($page->image) {
-	$imageNode = $channel->addChild('image');
-	$imageNode->addChild('url', $multisite->fixUrl($page->image->httpUrl));
-	$imageNode->addChild('title', $page->title);
-	$imageNode->addChild('link', $feedURL);
-}
-$channel->addChild('generator', 'feedraptor 2.0');
-
-if ($page->author) {
-	$channel->addChild('itunes:author', $page->author, 'itunes');
-}
-
-
-foreach($episodes as $episode) {
-	$media = $episode->child("media_type={$page->media_type}");
-	if (!$media) {
-		continue;
-	}
-	$episodeNode = $channel->addChild('item');
-	$episodeNode->addChild('title', $episode->title);
-	$episodeUrl = $multisite->fixUrl($episode->httpUrl);
-	$episodeNode->addChild('link', $episodeUrl);
-	$episodeNode->addChild('description', $episode->summary);
-	$episodeNode->addChild('pubDate', Carbon::createFromTimestamp($episode->getUnformatted('release'))->toRfc2822String());
-	if ($episode->guid) {
-		$episodeNode->addChild('guid', $episode->guid)->addAttribute('isPermaLink', false);
-	} else {
-		$episodeNode->addChild('guid', $episodeUrl);
-	}
-	$mediaNode = $episodeNode->addChild('enclosure');
-	$mediaNode->addAttribute('url', $media->href);
-	if ($media->size) {
-		$mediaNode->addAttribute('length', $media->size);
-	}
-	$mediaNode->addAttribute('type', $media->mime ?: $media->media_type->mime);
-}
-
-echo $document->asXML();
-*/
