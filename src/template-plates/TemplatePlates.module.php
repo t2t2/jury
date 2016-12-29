@@ -83,7 +83,8 @@ class TemplatePlates extends WireData implements Module {
 		$fuel = $templateFile->getArray(); // so that script can foreach all vars to see what's there
 
 		$templates = $this->getEngine();
-		$out = $templates->render($fileName, $fuel);
+		$templates->addData($fuel);
+		$out = $templates->render($fileName);
 
 
 		if($templateFile->savedDir) chdir($templateFile->savedDir); 
