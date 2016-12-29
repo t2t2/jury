@@ -7,6 +7,8 @@ use t2t2\JuRYShow\UrlPaths;
 $config = new Config();
 $config->dbName = '';
 
+$host = '';
+
 if(isset($_SERVER['HTTP_HOST'])) {
 	$host = strtolower($_SERVER['HTTP_HOST']);
 
@@ -66,5 +68,12 @@ if (file_exists($config->paths->site . 'config.php')) {
 if (file_exists($config->paths->root . 'config.php')) {
 	require $config->paths->root . 'config.php';
 }
+
+// Set host & protocol
+if (in_array($host, $config->httpHosts)) {
+	$config->httpHost = $host;
+}
+$config->https = (isset($_SERVER['HTTPS']) && ($_SERVER['HTTPS'] == 'on' || $_SERVER['HTTPS'] == 1) ||
+    isset($_SERVER['HTTP_X_FORWARDED_PROTO']) && $_SERVER['HTTP_X_FORWARDED_PROTO'] == 'https');
 
 return $config;
