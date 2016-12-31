@@ -28,6 +28,10 @@ $self->setAttribute('href', $multisite->fixUrl($page->httpUrl));
 $self->setAttribute('rel', 'self');
 $self->setAttribute('type', 'application/rss+xml');
 
+if ($page->language) {
+	$channel->appendChild($xml->createElement('language', $page->language));
+}
+
 // itunes
 $channel->appendChild($xml->createElement('itunes:summary', $page->summary));
 $channel->appendChild($xml->createElement('itunes:author', $page->author));
