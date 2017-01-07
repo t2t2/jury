@@ -1,5 +1,6 @@
 node_modules/*
 public/site/*
+public/static/*
 public/wire/*
 site/assets/*
 site/modules/*
