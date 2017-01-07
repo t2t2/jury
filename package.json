@@ -1,0 +1,34 @@
+{
+  "name": "juryshow",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "build": "npm-run-all build:prod",
+    "build:dev": "webpack --progress --profile --colors",
+    "build:prod": "webpack -p --env.prod 1 --progress --profile --colors",
+    "lint": "xo"
+  },
+  "dependencies": {
+    "bulma": "^0.3.0"
+  },
+  "devDependencies": {
+    "autoprefixer": "^6.6.1",
+    "babel-core": "^6.21.0",
+    "babel-loader": "^6.2.10",
+    "babel-preset-env": "^1.1.6",
+    "css-loader": "^0.26.1",
+    "extract-text-webpack-plugin": "^2.0.0-beta.4",
+    "node-sass": "^4.1.1",
+    "npm-run-all": "^4.0.0",
+    "postcss-flexbugs-fixes": "^2.1.0",
+    "postcss-loader": "^1.2.1",
+    "sass-loader": "^4.1.1",
+    "style-loader": "^0.13.1",
+    "webpack": "^2.2.0-rc.3",
+    "webpack-cleanup-plugin": "^0.4.1",
+    "webpack-manifest-plugin": "^1.1.0",
+    "webpack-merge": "^2.3.1",
+    "webpack-notifier": "^1.5.0",
+    "xo": "^0.17.1"
+  }
+}
