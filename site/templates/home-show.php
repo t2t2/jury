@@ -16,10 +16,10 @@ $this->layout('layouts/main');
 <section class="section">
 	<div class="container">
 		<?php
-		$selector = "parent={$page->episodes_collections},sort=-release,limit=6";
-		$episodes = pages($selector);
-
-		if($page->episodes_collections && $page->episodes_collections->count()): ?>
+		if($page->episodes_collections && $page->episodes_collections->count()):
+			$selector = "parent={$page->episodes_collections},sort=-release,limit=6";
+			$episodes = pages($selector);
+		?>
 			<h2 class="title is-2">Recent Episodes</h2>
 
 			<div class="tile is-ancestor is-vertical">
