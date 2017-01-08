@@ -30,8 +30,8 @@ $this->layout('layouts/main');
 							echo '</div><div class="tile">';
 						}
 						?>
-						<div class="tile is-parent">
-							<?php $this->insert('partials/episode-card', ['page' => $episode, 'classes' => 'tile is-4 is-child']); ?>
+						<div class="tile is-4 is-parent">
+							<?php $this->insert('partials/episode-card', ['page' => $episode, 'classes' => 'tile is-child']); ?>
 						</div>
 					<?php endforeach; ?>
 				</div>
