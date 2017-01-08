@@ -31,7 +31,7 @@ $this->layout('layouts/main');
 						}
 						?>
 						<div class="tile is-parent">
-							<? $this->insert('partials/episode-card', ['page' => $episode, 'classes' => 'tile is-4 is-child']); ?>
+							<?php $this->insert('partials/episode-card', ['page' => $episode, 'classes' => 'tile is-4 is-child']); ?>
 						</div>
 					<?php endforeach; ?>
 				</div>
