@@ -23,15 +23,17 @@ $this->layout('layouts/main');
 			<h2 class="title is-2">Recent Episodes</h2>
 
 			<div class="tile is-ancestor is-vertical">
-				<div class="tile is-parent">
-					<?php
-					foreach($episodes as $i => $episode) {
+				<div class="tile">
+					<?php foreach($episodes as $i => $episode): ?>
+						<?php 
 						if ($i > 0 && $i % 3 === 0) {
-							echo '</div><div class="tile is-parent">';
+							echo '</div><div class="tile">';
 						}
-						$this->insert('partials/episode-card', ['page' => $episode, 'classes' => 'tile is-4 is-child']);
-					}
-					?>
+						?>
+						<div class="tile is-parent">
+							<? $this->insert('partials/episode-card', ['page' => $episode, 'classes' => 'tile is-4 is-child']); ?>
+						</div>
+					<?php endforeach; ?>
 				</div>
 			</div>
 
