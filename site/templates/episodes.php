@@ -8,7 +8,7 @@ $this->layout('layouts/main');
 		<h2 class="title is-2"><?= $page->title ?></h2>
 
 		<?php
-		$episodes = $page->children('limit=1');
+		$episodes = $page->children('limit=15');
 
 		if($episodes->count()): ?>
 			<div class="tile is-ancestor is-vertical">
