@@ -48,6 +48,7 @@ class TemplatePlates extends WireData implements Module {
 		}
 
 		$this->templates = new Engine($this->config->paths->templates);
+		$this->templates->registerFunction('wire', 'ProcessWire\\wire');
 		return $this->templates;
 	}
 
@@ -72,7 +73,7 @@ class TemplatePlates extends WireData implements Module {
 		ProcessWire::setCurrentInstance($templateFile->wire());
 
 		$templateFile->profiler = $templateFile->wire('profiler');
-		$templateFile->savedDir = getcwd();	
+		$templateFile->savedDir = getcwd();
 
 		if($templateFile->chdir) {
 			chdir($templateFile->chdir);
@@ -84,6 +85,7 @@ class TemplatePlates extends WireData implements Module {
 
 		$templates = $this->getEngine();
 		$templates->addData($fuel);
+		$templates->addData(['fuel' => $fuel]);
 		$out = $templates->render($fileName);
 
 

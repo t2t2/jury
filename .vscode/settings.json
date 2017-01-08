@@ -1,6 +1,7 @@
 // Place your settings in this file to overwrite default and user settings.
 {
 	"search.exclude": {
-		"**/vendor": false
+		"**/vendor": false,
+		"**/public/static": false
 	}
 }

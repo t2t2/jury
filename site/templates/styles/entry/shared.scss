@@ -1,1 +1,19 @@
 @import "~bulma";
+
+// copy footer background to body
+body {
+	min-height: 100vh;
+	display: flex;
+	flex-direction: column;
+
+	& > .footer {
+		flex-grow: 1;
+	}
+}
+
+.media.is-episode {
+	.media-left {
+		min-width: 160px;
+	}
+}
+

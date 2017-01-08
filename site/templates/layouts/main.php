@@ -30,21 +30,24 @@ $site = $page->rootParent;
 		</div>
 	</section>
 
-	<section class="section">
+	<?= $this->section('content'); ?>
+
+	<footer class="footer">
 		<div class="container">
-	
-		<?= $this->section('content'); ?>
+			<div class="content has-text-centered">
+				Footer
+			</div>
 		</div>
-	</section>
-
-	<?php if ($page->editable()) {
-		echo "<p><a href='$page->editURL'>Edit</a></p>";
-	} ?>
-
+	</footer>
 
 	<script src="https://cdn.polyfill.io/v2/polyfill.min.js"></script>
 	<script src="<?= asset('/static/manifest.js') ?>"></script>
 	<script src="<?= asset('/static/vendor.js') ?>"></script>
 	<script src="<?= asset('/static/shared.js') ?>"></script>
+<?php
+use function Processwire\wire;
+if($config->debug && $user->isSuperuser())
+	include($config->paths->adminTemplates . "debug.inc");
+?>
 </body>
 </html>
