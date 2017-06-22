@@ -44,7 +44,8 @@ $config->httpHosts = [
 	'justinryoung.tv', 'www.justinryoung.tv',
 	'jurytalks.com', 'www.jurytalks.com',
 	'politicspoliticspolitics.com', 'www.politicspoliticspolitics.com',
-	'1900wrestling.justinryoung.tv', 'www.1900wrestling.justinryoung.tv'
+	'1900wrestling.justinryoung.tv', 'www.1900wrestling.justinryoung.tv',
+	'kickstarter.justinryoung.tv', 'www.kickstarter.justinryoung.tv'
 ];
 
 $config->MultisiteDomains = [
@@ -62,6 +63,10 @@ $config->MultisiteDomains = [
 	],
 	'1900wrestling.justinryoung.tv' => [
 		'root' => '1900wrestling.justinryoung.tv',
+		'http404' => 27
+	],
+	'kickstarter.justinryoung.tv' => [
+		'root' => 'kickstarter.justinryoung.tv',
 		'http404' => 27
 	]
 ];
