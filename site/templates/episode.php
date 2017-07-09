@@ -49,7 +49,7 @@ if ($image) {
 				<nav class="panel">
 					<p class="panel-heading">Watch / Download</p>
 					<?php foreach($page->media as $media): ?>
-						<a class="panel-block" href="<?= $media->url ?>">
+						<a class="panel-block" href="<?= $media->href ?>">
 							<?= $media->title ?>
 						</a>
 					<?php endforeach; ?>
