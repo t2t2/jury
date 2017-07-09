@@ -5,7 +5,7 @@
     "require": {
         "processwire/processwire": "^3.0",
         "hari/pw-module": "^1.0",
-        "lostkobrakai/migrations": "^0.1.8",
+        "lostkobrakai/migrations": "^0.3.0",
         "kongondo/menu-builder": "^0.1.6",
         "somatonic/multisite": "^10",
         "nesbot/carbon": "^1.21",
